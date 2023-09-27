@@ -1,0 +1,9 @@
+from datetime import datetime
+
+
+def validate_time_format(time_str):
+    try:
+        datetime.strptime(time_str, "%H:%M")
+        return True
+    except ValueError:
+        return False
