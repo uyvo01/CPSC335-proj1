@@ -4,7 +4,11 @@ from datetime import datetime
 with open('input.txt', 'r') as input_file:
     lines = input_file.readlines()
 
-
+  person1_busy_schedule = []
+    person1_working_hours = []
+    person2_busy_schedule = []
+    person2_working_hours = []
+    duration_of_meeting = None
 
 def validate_time_format(time_str):
     try:
