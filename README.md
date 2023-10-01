@@ -8,8 +8,10 @@ time when all members are available for a meeting for a minimum duration expecte
 ## The group schedule matching takes following inputs:
 1. Busy_Schedule: A list of list that represent the persons existing schedule (they can’t plan any
 other engagement during these hours)
-1. Working_period: Daily working periods of group members. (login,logout)
-1. Duration of the meeting
+2. Working_period: Daily working periods of group members. (login,logout)
+3. Duration of the meeting
+Inputs are in sorted order.
+ 
 ### Sample input
 - person1_busy_Schedule =[ [’12:00’, ’13:00’], [’16:00’, ’18:00’]]
 - person1_work_hours = [‘9:00’, ’19:00’]
@@ -18,7 +20,8 @@ other engagement during these hours)
 - duration_of_meeting =30
 
 ## The outputs:
-It outputs a list of list containing intervals of time when all members are available for a meeting for the minimum duration of the meeting required.
+It outputs a list containing intervals of time when all members are available for a meeting for the minimum duration of the meeting required. Time is given and returned in military format. For example: 9:30, 22:21. The given times (output) are sorted in ascending order. 
+
 ### Sample output
 - [[’10:30’, ’12:00’], [’15:00’, ’16:00’], [’18:00’, ’18:30’]]
 
@@ -26,7 +29,7 @@ It outputs a list of list containing intervals of time when all members are avai
 
 ## Author: 
 - Uy Vo - uyvo@csu.fullerton.edu
-- Gina Lee - 
+- Gina Lee -ginnaaleee@csu.fullerton.edu
 ## California State University, Fullerton.
 
 ## Instruction:
