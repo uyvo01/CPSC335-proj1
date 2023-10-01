@@ -1,1 +1,44 @@
+Available meeting slots on day 1 (duration 10 minutes):
+09:00 - 10:15
+11:00 - 11:30
+16:00 - 18:30
+
+Available meeting slots on day 2 (duration 120 minutes):
+16:00 - 18:30
+
+Available meeting slots on day 3 (duration 60 minutes):
+09:00 - 10:00
+13:00 - 14:00
+16:00 - 18:30
+
+Available meeting slots on day 4:
+[]:invalid input data
+
+Available meeting slots on day 5 (duration 120 minutes):
+16:00 - 18:30
+
+Available meeting slots on day 6 (duration 60 minutes):
+09:00 - 10:00
+13:00 - 14:00
+16:00 - 18:30
+
+Available meeting slots on day 7 (duration 30 minutes):
+09:00 - 10:15
+11:00 - 11:30
+13:00 - 14:00
+16:00 - 18:30
+
+Available meeting slots on day 8 (duration 120 minutes):
+16:00 - 18:30
+
+Available meeting slots on day 9 (duration 60 minutes):
+09:00 - 10:00
+13:00 - 14:00
+16:00 - 18:30
+
+Available meeting slots on day 10 (duration 15 minutes):
+09:00 - 10:15
+11:00 - 11:30
+13:00 - 14:00
+16:00 - 19:00
 
