@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
-# Specify the output file name
+# Specify the input and output file name
+file = open("Input.txt", "r")
 output_file = open("Output.txt", "w")
 day = 0 # index of a group of 5 lines in the input file
 
@@ -41,40 +42,41 @@ def find_available_slots(person1_work_hours, person2_work_hours, person1_busy_Sc
     except:
         return "[]: invalid data input"
 
-# Read input from the input.txt file
-with open("Input.txt", "r") as file:
-    last_pos = file.tell()
-    line = file.readline()
-    while line:
-        try:
-            day += 1
-            file.seek(last_pos)
-            person1_busy_Schedule = eval(file.readline())
-            person1_work_hours = eval(file.readline())
-            person2_busy_Schedule = eval(file.readline())
-            person2_work_hours = eval(file.readline())
-            duration_of_meeting = int(file.readline())
+# ***** MAIN CODE HERE ****************
+## get the first position of the file
+last_pos = file.tell()
+line = file.readline()
 
-            # Calculate available slots
-            available_slots = find_available_slots(person1_work_hours, person2_work_hours, person1_busy_Schedule, person2_busy_Schedule, duration_of_meeting)
+while line:
+    try:
+        day += 1
+        file.seek(last_pos)
+        person1_busy_Schedule = eval(file.readline())
+        person1_work_hours = eval(file.readline())
+        person2_busy_Schedule = eval(file.readline())
+        person2_work_hours = eval(file.readline())
+        duration_of_meeting = int(file.readline())
 
-            # Write the available meeting slots to the output.txt file
-            strday = "Available meeting slots on day " + str(day) + " (duration " + str(duration_of_meeting) + " minutes):\n"
-            output_file.write(strday)
-            for slot in available_slots:
-                output_file.write(f"{slot[0]} - {slot[1]}\n")
-            output_file.write("\n")
+        # Calculate available slots
+        available_slots = find_available_slots(person1_work_hours, person2_work_hours, person1_busy_Schedule, person2_busy_Schedule, duration_of_meeting)
+
+        # Write the available meeting slots to the output.txt file
+        strday = "Available meeting slots on day " + str(day) + " (duration " + str(duration_of_meeting) + " minutes):\n"
+        output_file.write(strday)
+        for slot in available_slots:
+            output_file.write(f"{slot[0]} - {slot[1]}\n")
+        output_file.write("\n")
+        line = file.readline()
+        last_pos = file.tell()
+    except:
+        strday = "Available meeting slots on day " + str(day) + ":\n"
+        strday += "[]:invalid input data\n\n"
+        output_file.write(strday)
+        # in the case invalid data input, move top and then go to the next day (6 lines)
+        file.seek(last_pos)
+        for i in range(6):
             line = file.readline()
-            last_pos = file.tell()
-        except:
-            strday = "Available meeting slots on day " + str(day) + ":\n"
-            strday += "[]:invalid input data\n\n"
-            output_file.write(strday)
-            # in the case invalid data input, move top and then go to the next day (6 lines)
-            file.seek(last_pos)
-            for i in range(6):
-                line = file.readline()
 
-            # ------End of go to next day---------------
-            last_pos = file.tell()
+        # ------End of go to next day---------------
+        last_pos = file.tell()
 print(f"Available meeting slots written to {output_file}")
